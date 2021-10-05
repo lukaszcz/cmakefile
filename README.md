@@ -4,7 +4,7 @@ for small to medium-sized C/C++ projects.
 
 Features
 --------
-* Easy to use - in simple cases just copying the Makefile into your project directory suffices.
+* Easy to use. In simple cases just copying the Makefile into your project directory suffices.
 * Automatic detection of C, C++, Flex and Yacc/Bison sources based on
   file extensions.
 * Automatic dependency generation.
