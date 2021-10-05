@@ -14,8 +14,7 @@ lsdirs = $(foreach dir,$(2),$(foreach file,$(wildcard $(dir)/*.$(1)),$(file)))
 getopt = $(call mstrip,$(shell $(CAT_PROJECT) | sed -n "s/^[[:space:]]*$(1)[[:space:]]*=[[:space:]]*\(.*\)/\1/p"))
 getpopt = $(call mstrip,$(shell $(CAT_PROJECT) | sed -n "s/^[[:space:]]*\($(WORD)\)*$(1)[[:space:]][[:space:]]*\($(WORD)\)*$(2)[[:space:]]*=[[:space:]]*\(.*\)/\3/p"))
 
-PREFIX   := $(CONFIG)[[:space:]][[:space:]]*
-
+# build configuration
 CONFIG   := $(call getopt,CONFIG)
 ifeq ($(CONFIG),)
 getcopt = $(call getopt,$(1))
