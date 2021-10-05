@@ -31,7 +31,7 @@ to use CMakefile is to copy `Makefile` into your source
 directory. Running `make` will then create executables for all files
 containing definitions of `main`. If your project directory contains
 the `src` subdirectory with all sources, then you can copy `Makefile`
-into the
+into the project directory instead of into `src`.
 
 Compiler flags, subdirectories, program sources, build directory and
 more can be specified via project options (see below).
