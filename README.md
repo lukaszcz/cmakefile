@@ -52,7 +52,7 @@ Project options
 ---------------
 
 The `PROJECT` file should contain project option declarations, each on
-a separate line. The declarations have the two forms.
+a separate line. The declarations have two forms.
 
 1. Global declarations.
 ```
