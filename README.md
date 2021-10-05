@@ -92,8 +92,8 @@ declaration of `CONFIG` in `PROJECT`.
 
 All options are available for use as variables in `Makefile-include`.
 
-Lines of `PROJECT` which begin with '#' are treated as comments. Note
-that '#' must be the first character in the line for it to be treated
+Lines of `PROJECT` which begin with `#` are treated as comments. Note
+that `#` must be the first character in the line for it to be treated
 as a comment.
 
 Aside of the `CONFIG` option which should have only one declaration,
