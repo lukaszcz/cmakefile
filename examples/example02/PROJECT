@@ -1,0 +1,18 @@
+CONFIG = NOTEST
+
+SUBDIRS = subdir1 subdir2
+PROGRAMS = prog
+
+# always ignore
+IGNORE = ignoreme.c
+
+NOTEST HELLO IGNORE = test.c
+
+# ignore only in the TEST and NOTEST configurations
+TEST NOTEST IGNORE = hello.c
+
+TEST CFLAGS = --pedantic -W -Wall
+TEST SUBDIRS = tests
+TEST PROGRAMS = test
+
+HELLO PROGRAMS = hello
