@@ -142,7 +142,7 @@ Limitations
 * Source files must have recognised extensions: .c, .cpp, .cxx, .cc,
   .lex, .y.
 * File names cannot contain whitespace.
-* Detection of the `main` function is very crude -- it is based on
+* Detection of the `main` function is very crude - it is based on
   matching the regular expression `\bint[ \t]+main\b`. This may give a
   false positive if anything in your sources that is not a definition
   of `main` matches, or a false negative when, e.g., you have a
