@@ -1,5 +1,7 @@
 # CMakefile: generic automatic Makefile for C and C++
 #
+# See https://github.com/lukaszcz/cmakefile for the latest version.
+#
 # Copyright (C) 2008-2022 by Lukasz Czajka.
 #
 # Distributed under the MIT license. See the bottom of this file.
