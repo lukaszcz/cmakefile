@@ -1,6 +1,6 @@
 # CMakefile: generic automatic Makefile for C and C++
 #
-# Copyright (C) 2008-2021 by Lukasz Czajka.
+# Copyright (C) 2008-2022 by Lukasz Czajka.
 #
 # Distributed under the MIT license. See the bottom of this file.
 #
@@ -279,7 +279,7 @@ ifneq ($(wildcard Makefile-include),)
 include Makefile-include
 endif
 
-# Copyright (c) 2008-2021 by Lukasz Czajka.
+# Copyright (c) 2008-2022 by Lukasz Czajka.
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
