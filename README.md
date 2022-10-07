@@ -104,8 +104,9 @@ concatenated. For replaceable options, the local declaration overrides
 the global one.
 
 ### Concatenable options
-* `PROGRAMS`: Program executables to create. Default: basenames
-  without extension of source files containing definitions of `main`.
+* `PROGRAMS`: Program executables to create (paths relative to the
+  source directory). Default: basenames without extension of source
+  files containing definitions of `main`.
 * `SUBDIRS`: Subdirectories of the source directory (`SRCDIR`)
   included in the search for sources. Default: empty.
 * `IGNORE`: Source files to ignore (paths are relative to the source
@@ -119,7 +120,8 @@ the global one.
 * `LEXFLAGS`: Lex flags. Default: empty.
 * `CCLDFLAGS`: C linker flags. Default: empty.
 * `CXXLDFLAGS`: C++ linker flags. Default: empty.
-* `LIBFLAGS`: Librarian flags. Default: `sru`.
+* `LDFLAGS`: Linker flags common to C and C++ linkers. Default: empty.
+* `LIBFLAGS`: Librarian flags. Default: `-static`.
 
 ### Replaceable options
 * `SRCDIR`: Source directory. Default: `src` if it exists, current
@@ -135,7 +137,7 @@ the global one.
 * `CCLD`: C linker. Default: `CC` if there are no C++ sources, `CXX`
   otherwise.
 * `CXXLD`: C++ linker. Default: `CXX`.
-* `LIBTOOL`: Librarian. Default: `ar`.
+* `LIBTOOL`: Librarian. Default: `libtool`.
 
 Limitations
 -----------
@@ -151,6 +153,6 @@ Limitations
 Copyright and license
 ---------------------
 
-Copyright (C) 2008-2021 by Lukasz Czajka.
+Copyright (C) 2008-2022 by Lukasz Czajka.
 
 Distributed under the MIT license. See [LICENSE](LICENSE).

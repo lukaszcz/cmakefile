@@ -1,0 +1,8 @@
+# Example 03: library and program in separate subdirectories
+
+MYLIB SUBDIRS = lib
+MYLIB LIB = mylib
+
+MYPROG SUBDIRS = prog
+MYPROG LDFLAGS = -L_build -lmylib
+MYPROG PROGRAMS = prog/myprog

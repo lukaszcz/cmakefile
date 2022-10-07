@@ -51,8 +51,9 @@ CXXDEPFLAGS := $(call getcopt,CXXDEPFLAGS)
 ifeq ($(strip $(CXXDEPFLAGS)),)
 CXXDEPFLAGS   := $(CXXFLAGS)
 endif
-CCLDFLAGS   := $(call getcopt,CCLDFLAGS)
-CXXLDFLAGS  := $(call getcopt,CXXLDFLAGS)
+LDFLAGS     := $(call getcopt,LDFLAGS)
+CCLDFLAGS   := $(call getcopt,CCLDFLAGS) $(LDFLAGS)
+CXXLDFLAGS  := $(call getcopt,CXXLDFLAGS) $(LDFLAGS)
 YFLAGS      := $(call getcopt,YFLAGS)
 ifeq ($(strip $(YFLAGS)),)
 YFLAGS	    := -d
@@ -60,7 +61,7 @@ endif
 LEXFLAGS    := $(call getcopt,LEXFLAGS)
 LIBFLAGS    := $(call getcopt,LIBFLAGS)
 ifeq ($(strip $(LIBFLAGS)),)
-LIBFLAGS := sru
+LIBFLAGS := -static
 endif
 
 # source directory
@@ -110,6 +111,9 @@ endif
 
 # library to create
 LIB	    := $(call getropt,LIB)
+ifneq ($(LIB),)
+LIB := $(BUILDDIR)lib$(LIB).a
+endif
 # programs to create
 PROGRAMS     := $(patsubst %,$(BUILDDIR)$(SRCDIR)%,$(call getcopt,PROGRAMS))
 # subdirectories of the source directory
@@ -201,7 +205,7 @@ endif
 
 LIBTOOL	    := $(call getropt,LIBTOOL)
 ifeq ($(LIBTOOL),)
-LIBTOOL := ar
+LIBTOOL := libtool
 endif
 
 ifneq ($(BUILDDIR),)
@@ -252,7 +256,7 @@ $(CPPPROGRAMS) : % : $(ALLOBJECTS)
 	$(CXXLD) -o $@  $@.o $(OBJECTS) $(CXXLDFLAGS)
 
 $(LIB) : % : $(OBJECTS)
-	$(LIBTOOL) $(LIBFLAGS) $@ $(OBJECTS)
+	$(LIBTOOL) $(LIBFLAGS) -o $@ $(OBJECTS)
 
 include $(DEPENDS)
 
