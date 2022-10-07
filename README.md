@@ -22,7 +22,7 @@ Features
 Requirements
 ------------
 * GNU make
-* bash, grep, sed
+* bash, grep, sed, find
 
 Usage
 -----
@@ -109,6 +109,9 @@ the global one.
   files containing definitions of `main`.
 * `SUBDIRS`: Subdirectories of the source directory (`SRCDIR`)
   included in the search for sources. Default: empty.
+* `RSUBDIRS`: Same as `SUBDIRS` but also recursively includes all
+  subdirectories of the listed directories, the subdirectories of the
+  subdirectories of the listed directories, and so on. Default: empty.
 * `IGNORE`: Source files to ignore (paths are relative to the source
   directory). Default: empty.
 * `CFLAGS`: C compiler flags. Default: empty.

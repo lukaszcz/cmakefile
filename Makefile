@@ -123,6 +123,10 @@ PROGRAMS     := $(patsubst %,$(BUILDDIR)$(SRCDIR)%,$(call getcopt,PROGRAMS))
 # subdirectories of the source directory
 SUBDIRS     := $(call getcopt,SUBDIRS)
 override SUBDIRS := $(patsubst %,$(SRCDIR)%,$(SUBDIRS))
+# recursive subdirectories of the source directory
+RSUBDIRS     := $(call getcopt,RSUBDIRS)
+override RSUBDIRS := $(patsubst %,$(SRCDIR)%,$(RSUBDIRS))
+override SUBDIRS := $(SUBDIRS) $(foreach dir,$(RSUBDIRS),$(shell find $(dir) -type d))
 # files to ignore
 IGNORE	    := $(patsubst %,$(SRCDIR)%,$(call getcopt,IGNORE))
 # source files
