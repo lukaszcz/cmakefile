@@ -5,6 +5,8 @@
 # Distributed under the MIT license. See the bottom of this file.
 #
 
+MAKEFILE := $(lastword $(MAKEFILE_LIST))
+
 WORD := [[:alpha:]]*[[:space:]][[:space:]]*
 CAT_PROJECT := (if [ -f PROJECT ]; then cat PROJECT | sed "s/^\#.*//"; else echo ""; fi)
 
@@ -270,13 +272,13 @@ ifneq ($(BUILDDIR),)
 endif
 
 ifneq ($(wildcard PROJECT),)
-Makefile: $(DEPENDS) $(BUILDDIR).prjconfig
+$(MAKEFILE): $(DEPENDS) $(BUILDDIR).prjconfig
 
 $(BUILDDIR).prjconfig: PROJECT
 	-rm -f $(PROGRAMS) $(ALLOBJECTS) $(DEPENDS) $(LIB) $(CYSOURCES) $(HYSOURCES) $(CLEXSOURCES)
 	touch $(BUILDDIR).prjconfig
 else
-Makefile: $(DEPENDS)
+$(MAKEFILE): $(DEPENDS)
 endif
 
 ifneq ($(wildcard Makefile-include),)
