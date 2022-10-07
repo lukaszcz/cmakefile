@@ -121,7 +121,9 @@ the global one.
 * `CCLDFLAGS`: C linker flags. Default: empty.
 * `CXXLDFLAGS`: C++ linker flags. Default: empty.
 * `LDFLAGS`: Linker flags common to C and C++ linkers. Default: empty.
-* `LIBFLAGS`: Librarian flags. Default: `-static`.
+* `LIBFLAGS`: Librarian flags. The flag `-o` must occur at the end of
+  `LIBFLAGS` if `libtool` is used. For `ar` compatibility, `-o` is not
+  added automatically. Default: `-static -o`.
 
 ### Replaceable options
 * `SRCDIR`: Source directory. Default: `src` if it exists, current

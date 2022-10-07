@@ -65,7 +65,7 @@ endif
 LEXFLAGS    := $(call getcopt,LEXFLAGS)
 LIBFLAGS    := $(call getcopt,LIBFLAGS)
 ifeq ($(strip $(LIBFLAGS)),)
-LIBFLAGS := -static
+LIBFLAGS := -static -o
 endif
 
 # source directory
@@ -260,7 +260,7 @@ $(CPPPROGRAMS) : % : $(ALLOBJECTS)
 	$(CXXLD) -o $@  $@.o $(OBJECTS) $(CXXLDFLAGS)
 
 $(LIB) : % : $(OBJECTS)
-	$(LIBTOOL) $(LIBFLAGS) -o $@ $(OBJECTS)
+	$(LIBTOOL) $(LIBFLAGS) $@ $(OBJECTS)
 
 include $(DEPENDS)
 
