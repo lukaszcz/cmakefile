@@ -82,6 +82,19 @@ The idea is that the value of `CONFIG` may be easily changed affecting
 multiple options at once. Typical values for `CONFIG` are `RELEASE`
 and `DEBUG`, but any word can be used.
 
+Two configurations may be conjoined with a `+` symbol. For example,
+the following declaration sets `CFLAGS` to `-O2 -DNDEBUG -march=i386
+-mmmx`.
+
+```
+CONFIG = X86+RELEASE
+DEBUG CFLAGS = -Wall -g -O0
+RELEASE CFLAGS = -O2 -DNDEBUG
+X86 CFLAGS = -march=i386
+X86+RELEASE CLFAGS = -mmmx
+X86+DEBUG CFLAGS = -DX86DEBUG
+```
+
 The project options may also be specified on the command line,
 overriding the declarations in `PROJECT`. For example,
 ```
@@ -154,6 +167,15 @@ Limitations
   false positive if anything in your sources that is not a definition
   of `main` matches, or a false negative when, e.g., you have a
   newline between `int` and `main`.
+* The `+` operator is not commutative and conjoined configurations must
+  occur verbatim in the option specifications. For example, the following
+  sets `CFLAGS` to just `-march=i386`.
+  ```
+  CONFIG = X86+DEBUG+FAST
+  X86 CFLAGS = -march=i386
+  X86+DEBUG CFLAGS = -g
+  FAST+X86+DEBUG CFLAGS = -O3
+  ```
 
 Copyright and license
 ---------------------
