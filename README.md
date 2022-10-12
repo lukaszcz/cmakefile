@@ -83,8 +83,8 @@ multiple options at once. Typical values for `CONFIG` are `RELEASE`
 and `DEBUG`, but any word can be used.
 
 Two configurations may be conjoined with a `+` symbol. For example,
-the following declaration sets `CFLAGS` to `-O2 -DNDEBUG -march=i386
--mmmx`.
+the following declarations will set the `CFLAGS` option to `-O2
+-DNDEBUG -march=i386 -mmmx`.
 
 ```
 CONFIG = X86+RELEASE
