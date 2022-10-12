@@ -168,6 +168,7 @@ Limitations
 * The `+` operator is not commutative and conjoined configurations must
   occur verbatim in the option specifications. For example, the following
   sets `CFLAGS` to just `-march=i386`.
+
   ```
   CONFIG = X86+DEBUG+FAST
   X86 CFLAGS = -march=i386
