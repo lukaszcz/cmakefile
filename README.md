@@ -82,7 +82,7 @@ The idea is that the value of `CONFIG` may be easily changed affecting
 multiple options at once. Typical values for `CONFIG` are `RELEASE`
 and `DEBUG`, but any word can be used.
 
-Two configurations may be conjoined with a `+` symbol. For example,
+Two configurations may be conjoined with the `+` symbol. For example,
 ```
 CONFIG = X86+RELEASE
 DEBUG CFLAGS = -Wall -g -O0
