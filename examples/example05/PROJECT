@@ -1,0 +1,6 @@
+CONFIG = A
+
+CFLAGS = -DNONE
+
+A CFLAGS := -DA
+B CFLAGS = -DB

@@ -114,6 +114,15 @@ and local declarations of the option, their values are
 concatenated. For replaceable options, the local declaration overrides
 the global one.
 
+Concatenable options can be locally overriden using the overriding
+assignment `:=`. For example,
+```
+CONFIG = DEBUG
+CFLAGS = -DNDEBUG -O2
+DEBUG CFLAGS := -DDEBUG
+```
+sets `CFLAGS` to `-DDEBUG`.
+
 ### Concatenable options
 * `PROGRAMS`: Program executables to create (paths relative to the
   source directory). Default: basenames without extension of source
