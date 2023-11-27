@@ -2,7 +2,7 @@
 #
 # See https://github.com/lukaszcz/cmakefile for the latest version.
 #
-# Copyright (C) 2008-2022 by Lukasz Czajka.
+# Copyright (C) 2008-2023 by Lukasz Czajka.
 #
 # Distributed under the MIT license. See the bottom of this file.
 #
@@ -241,23 +241,23 @@ $(CLEXSOURCES) : $(BUILDDIR)%.c : %.lex
 
 $(CDEPENDS) : $(BUILDDIR)%.d : %.c
 	$(CC) $(CDEPFLAGS) -MM -MT $(patsubst %.c,$(BUILDDIR)%.o,$<) $< > $@
-	printf "\t$(CC) -c $(CFLAGS) -o $(patsubst %.c,$(BUILDDIR)%.o,$<) $<\n" >> $@
+	printf "\t\$$(CC) -c \$$(CFLAGS) -o $(patsubst %.c,$(BUILDDIR)%.o,$<) $<\n" >> $@
 
 $(CYLDEPENDS) : $(BUILDDIR)%.d : $(BUILDDIR)%.c
 	$(CC) $(CDEPFLAGS) -MM -MT $(patsubst %.c,%.o,$<) $< > $@
-	printf "\t$(CC) -c $(CFLAGS) -o $(patsubst %.c,%.o,$<) $<\n" >> $@
+	printf "\t\$$(CC) -c \$$(CFLAGS) -o $(patsubst %.c,%.o,$<) $<\n" >> $@
 
 $(CPPDEPENDS) : $(BUILDDIR)%.d : %.cpp
 	$(CXX) $(CXXDEPFLAGS) -MM -MT $(patsubst %.cpp,$(BUILDDIR)%.o,$<) $< > $@
-	printf "\t$(CXX) -c $(CXXFLAGS) -o $(patsubst %.cpp,$(BUILDDIR)%.o,$<) $<\n" >> $@
+	printf "\t\$$(CXX) -c \$$(CXXFLAGS) -o $(patsubst %.cpp,$(BUILDDIR)%.o,$<) $<\n" >> $@
 
 $(CXXDEPENDS) : $(BUILDDIR)%.d : %.cxx
 	$(CXX) $(CXXDEPFLAGS) -MM -MT $(patsubst %.cxx,$(BUILDDIR)%.o,$<) $< > $@
-	printf "\t$(CXX) -c $(CXXFLAGS) -o $(patsubst %.cxx,$(BUILDDIR)%.o,$<) $<\n" >> $@
+	printf "\t\$$(CXX) -c \$$(CXXFLAGS) -o $(patsubst %.cxx,$(BUILDDIR)%.o,$<) $<\n" >> $@
 
 $(CCDEPENDS) : $(BUILDDIR)%.d : %.cc
 	$(CXX) $(CXXDEPFLAGS) -MM -MT $(patsubst %.cc,$(BUILDDIR)%.o,$<) $< > $@
-	printf "\t$(CXX) -c $(CXXFLAGS) -o $(patsubst %.cc,$(BUILDDIR)%.o,$<) $<\n" >> $@
+	printf "\t\$$(CXX) -c \$$(CXXFLAGS) -o $(patsubst %.cc,$(BUILDDIR)%.o,$<) $<\n" >> $@
 
 $(CPROGRAMS) : % : $(ALLOBJECTS)
 	$(CCLD) -o $@ $@.o $(OBJECTS) $(CCLDFLAGS)
@@ -293,7 +293,7 @@ ifneq ($(wildcard Makefile-include),)
 include Makefile-include
 endif
 
-# Copyright (c) 2008-2022 by Lukasz Czajka.
+# Copyright (c) 2008-2023 by Lukasz Czajka.
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal

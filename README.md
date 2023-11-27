@@ -188,6 +188,6 @@ Limitations
 Copyright and license
 ---------------------
 
-Copyright (C) 2008-2022 by Lukasz Czajka.
+Copyright (C) 2008-2023 by Lukasz Czajka.
 
 Distributed under the MIT license. See [LICENSE](LICENSE).
