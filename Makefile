@@ -2,7 +2,7 @@
 #
 # See https://github.com/lukaszcz/cmakefile for the latest version.
 #
-# Copyright (C) 2008-2023 by Lukasz Czajka.
+# Copyright (C) 2008-2024 by Lukasz Czajka.
 #
 # Distributed under the MIT license. See the bottom of this file.
 #
@@ -155,22 +155,22 @@ ALLOBJECTS  := $(strip $(COBJECTS) $(ALLCPPOBJECTS))
 
 # object files which contain the "main" function
 ifneq ($(strip $(CSOURCES)),)
-   CMAINOBJECTS := $(patsubst %.c,$(BUILDDIR)%.o,$(shell egrep -l '\bint[[:space:]]+main\b' $(CSOURCES)))
+   CMAINOBJECTS := $(patsubst %.c,$(BUILDDIR)%.o,$(shell grep -E -l '\bint[[:space:]]+main\b' $(CSOURCES)))
 else
    CMAINOBJECTS :=
 endif
 ifneq ($(strip $(CPPSOURCES)),)
-   CPPMAINOBJECTS := $(patsubst %.cpp,$(BUILDDIR)%.o,$(shell egrep -l '\bint[[:space:]]+main\b' $(CPPSOURCES)))
+   CPPMAINOBJECTS := $(patsubst %.cpp,$(BUILDDIR)%.o,$(shell grep -E -l '\bint[[:space:]]+main\b' $(CPPSOURCES)))
 else
    CPPMAINOBJECTS :=
 endif
 ifneq ($(strip $(CXXSOURCES)),)
-   CXXMAINOBJECTS := $(patsubst %.cxx,$(BUILDDIR)%.o,$(shell egrep -l 'int[[:space:]]+main\b' $(CXXSOURCES)))
+   CXXMAINOBJECTS := $(patsubst %.cxx,$(BUILDDIR)%.o,$(shell grep -E -l 'int[[:space:]]+main\b' $(CXXSOURCES)))
 else
    CXXMAINOBJECTS :=
 endif
 ifneq ($(strip $(CCSOURCES)),)
-   CCMAINOBJECTS := $(patsubst %.cxx,$(BUILDDIR)%.o,$(shell egrep -l 'int[[:space:]]+main\b' $(CCSOURCES)))
+   CCMAINOBJECTS := $(patsubst %.cxx,$(BUILDDIR)%.o,$(shell grep -E -l 'int[[:space:]]+main\b' $(CCSOURCES)))
 else
    CCMAINOBJECTS :=
 endif
@@ -293,7 +293,7 @@ ifneq ($(wildcard Makefile-include),)
 include Makefile-include
 endif
 
-# Copyright (c) 2008-2023 by Lukasz Czajka.
+# Copyright (c) 2008-2024 by Lukasz Czajka.
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
